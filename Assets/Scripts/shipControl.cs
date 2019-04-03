@@ -5,7 +5,7 @@ using UnityEngine;
 public class shipControl : MonoBehaviour
 {
     private float velocity = 10f;
-    // Start is called before the first frame update
+    public GameObject shipMesh;
     void Start()
     {
 
@@ -19,7 +19,11 @@ public class shipControl : MonoBehaviour
 
     void MovementControls()
     {
-        transform.localRotation = Quaternion.Euler(Input.GetAxis("Vertical") * -20, 0, Input.GetAxis("Horizontal")*-20);
-        transform.Translate(new Vector3(Time.deltaTime * Input.GetAxis("Horizontal") * velocity, Time.deltaTime * Input.GetAxis("Vertical") * velocity), 0);       
+        shipMesh.transform.localRotation = Quaternion.Euler(Input.GetAxis("Vertical") * -20, 
+                                                            Input.GetAxis("Horizontal") * 15, 
+                                                            Input.GetAxis("Horizontal")*-20);
+        transform.Translate(new Vector3(Time.deltaTime * Input.GetAxis("Horizontal") * velocity, 
+                                        Time.deltaTime * Input.GetAxis("Vertical") * velocity), 
+                                        0);       
     }
 }

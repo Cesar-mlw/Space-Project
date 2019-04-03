@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class asteroids : MonoBehaviour
 {
-    float velocity = 50;
-    Random random = new Random();
     public ParticleSystem explo;
+    Vector3 randorot;
     // Start is called before the first frame update
     void Start()
     {
-        
+        randorot = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position -= new Vector3(0, 0, Time.deltaTime * velocity);
-        if(transform.position.z < -50){
-            Destroy(gameObject);
-        }
+        transform.Rotate(randorot * Time.deltaTime);
     }
 
     private void OnParticleCollision(GameObject other)
     {
         explo.Play();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 0.25f);
+    }
+    private void ResetAsteroid()
+    {
+
     }
 }
