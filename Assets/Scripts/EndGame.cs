@@ -17,9 +17,9 @@ public class EndGame : MonoBehaviour
     void Update()
     {
         plyrPostiton = plyr.transform.position;
-        if(Vector3.Distance(gameObject.transform.position, plyrPostiton) < 10)
+        if(Vector3.Distance(plyrPostiton, gameObject.transform.position) <= 30)
         {
-            SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+            SceneManager.LoadScene("Level2");
         }
     }
 }

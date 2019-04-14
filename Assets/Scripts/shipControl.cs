@@ -19,11 +19,11 @@ public class shipControl : MonoBehaviour
 
     void MovementControls()
     {
-        shipMesh.transform.localRotation = Quaternion.Euler(Input.GetAxis("Vertical") * -20, 
-                                                            Input.GetAxis("Horizontal") * 15, 
-                                                            Input.GetAxis("Horizontal")*-20);
-        transform.Translate(new Vector3(Time.deltaTime * Input.GetAxis("Horizontal") * velocity, 
-                                        Time.deltaTime * Input.GetAxis("Vertical") * velocity), 
-                                        0);       
+        shipMesh.transform.localRotation = Quaternion.Euler(Input.GetAxis("Vertical") * -20,
+                                                                Input.GetAxis("Horizontal") * 15,
+                                                                Input.GetAxis("Horizontal") * -20);
+        transform.Translate(new Vector3(Time.deltaTime * Input.GetAxis("Horizontal") * velocity,
+                                            0),
+                                            0);
     }
 }
